@@ -1,7 +1,13 @@
 "use strict";
 const map = L.map("mapid").setView([-20.5394322, -47.4082936], 15);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiZG91Z2xhcy1yZWdhdGllcmkiLCJhIjoiY2tnOWliNGI2MDE0ZjJycG54ZHBxMWJ5OCJ9.4hIHST4u8NtVfFypMKSxdg'
+}).addTo(map);
 
 const icon = L.icon({
   iconUrl: './public/images/map-marker.svg',
